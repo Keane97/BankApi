@@ -9,7 +9,7 @@ public class Account {
     private long AccountNumber;
 
     @Column(name = "CustomerID", nullable = false)
-    private Customer customerId;
+    private Customer customerId; //foreign key for customers table (one customer one account)
 
     @Column(name = "AccountType", nullable = false)
     private String accountType;

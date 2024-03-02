@@ -9,8 +9,9 @@ public class Payments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long PaymentId;
 
-    @Column(name = "LoanId", nullable = false)
-    private Loans loanId;
+    @ManyToOne
+    @JoinColumn(name = "loanId")
+    private Loans loanId; //foreign key for loans (one loan many payments)
 
     @Column(name = "Amount")
     private String amount;

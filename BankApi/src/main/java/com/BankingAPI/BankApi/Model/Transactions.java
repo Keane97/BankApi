@@ -12,7 +12,7 @@ public class Transactions {
     private long TransactionId;
 
     @Column(name = "AccountNumber", nullable = false)
-    private Account accountNumber;
+    private Account accountNumber; //foreign key for account table (one account many transactions)
 
     @Column(name = "TransactionType")
     private String transactionType;

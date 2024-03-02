@@ -2,6 +2,8 @@ package com.BankingAPI.BankApi.Model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Loans {
 
@@ -9,8 +11,8 @@ public class Loans {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long LoanId;
 
-    @Column(name = "CustomerId", nullable = false)
-    private Customer customerId;
+    @OneToOne(mappedBy = "loanID")
+    private Customer customerId; //foreign key for customers table (one customer many loans)
 
     @Column(name = "LoanAmount")
     private Double loanAmount;
@@ -23,4 +25,7 @@ public class Loans {
 
     @Column(name = "DateDue")
     private Account dateDue;
+
+    @OneToMany(mappedBy = "loanId")
+    private List<Payments> PaymentId;
 }
