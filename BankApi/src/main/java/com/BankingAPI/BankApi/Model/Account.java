@@ -1,18 +1,25 @@
 package com.BankingAPI.BankApi.Model;
 
 import jakarta.persistence.*;
-@Entity
-public class Account {
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "Accounts")
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long AccountNumber;
+    private Long id;
 
-    @Column(name = "CustomerID", nullable = false)
-    private Customer customerId; //foreign key for customers table (one customer one account)
+    private String accountNumber;
 
-    @Column(name = "AccountType", nullable = false)
-    private String accountType;
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Transaction> transactions = new ArrayList<>();
 
     @Column(name = "Balance", nullable = false)
     private String balance;

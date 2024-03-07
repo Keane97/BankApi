@@ -2,20 +2,21 @@ package com.BankingAPI.BankApi.Model;
 
 import jakarta.persistence.*;
 
-@Entity
-public class Payments {
+import java.math.BigDecimal;
 
+@Entity
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long PaymentId;
-
-    @ManyToOne
-    @JoinColumn(name = "loanId")
-    private Loans loanId; //foreign key for loans (one loan many payments)
+    private Long id;
 
     @Column(name = "Amount")
-    private String amount;
+    private BigDecimal amount;
 
     @Column(name = "PaymentDate", nullable = false)
     private String paymentDate;
+
+    @ManyToOne
+    @JoinColumn(name = "loan_id")
+    private Loan loan;
 }
