@@ -26,4 +26,66 @@ public class Account {
 
     @Column(name = "DateOpened")
     private String dateOpened;
+
+    public Account() {
+    }
+
+    public Account(Long id, String accountNumber, Customer customer, List<Transaction> transactions, String balance, String dateOpened) {
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.customer = customer;
+        this.transactions = transactions;
+        this.balance = balance;
+        this.dateOpened = dateOpened;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public String getDateOpened() {
+        return dateOpened;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public void setDateOpened(String dateOpened) {
+        this.dateOpened = dateOpened;
+    }
+
+
 }
