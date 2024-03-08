@@ -1,6 +1,6 @@
 package com.BankingAPI.BankApi.Controller;
 
-import com.BankingAPI.BankApi.Service.TransactionService;
+import com.BankingAPI.BankApi.Service.TransactionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/transactions")
 public class TransactionController {
     @Autowired
-    private TransactionService transactionService;
+    private TransactionServiceImpl transactionServiceImpl;
 }
