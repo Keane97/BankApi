@@ -38,6 +38,7 @@ public class Customer {
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Account account;
 
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Loan> loans = new ArrayList<>();
 

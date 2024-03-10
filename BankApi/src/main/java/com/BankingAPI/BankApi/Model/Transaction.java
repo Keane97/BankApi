@@ -27,16 +27,21 @@ public class Transaction {
     @JoinColumn(name = "account_id")
     private Account account;
 
+    @OneToOne
+    @JoinColumn(name = "transaction_id")
+    private Payment payment;
+
     public Transaction() {
     }
 
-    public Transaction(Long id, String description, String transactionType, Double amount, Date transactionDate, Account account) {
+    public Transaction(Long id, String description, String transactionType, Double amount, Date transactionDate, Account account, Payment payment) {
         this.id = id;
         this.description = description;
         this.transactionType = transactionType;
         this.amount = amount;
         this.transactionDate = transactionDate;
         this.account = account;
+        this.payment = payment;
     }
 
     public Long getId() {
@@ -63,6 +68,10 @@ public class Transaction {
         return account;
     }
 
+    public Payment getPayment(){
+        return payment;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -85,5 +94,8 @@ public class Transaction {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }

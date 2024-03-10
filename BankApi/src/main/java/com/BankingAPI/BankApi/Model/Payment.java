@@ -20,14 +20,18 @@ public class Payment {
     @JoinColumn(name = "loan_id")
     private Loan loan;
 
+    @OneToOne(mappedBy = "payment", cascade = CascadeType.ALL)
+    private Transaction transaction;
+
     public Payment() {
     }
 
-    public Payment(Long id, BigDecimal amount, String paymentDate, Loan loan) {
+    public Payment(Long id, BigDecimal amount, String paymentDate, Loan loan, Transaction transaction) {
         this.id = id;
         this.amount = amount;
         this.paymentDate = paymentDate;
         this.loan = loan;
+        this.transaction = transaction;
     }
 
     public Long getId() {
@@ -46,6 +50,10 @@ public class Payment {
         return loan;
     }
 
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -60,5 +68,8 @@ public class Payment {
 
     public void setLoan(Loan loan) {
         this.loan = loan;
+    }
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 }
